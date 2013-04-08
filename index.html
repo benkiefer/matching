@@ -5,16 +5,37 @@
 	<script src="js/flippy.min.js" type="text/javascript"></script>
 	
 	<script type="text/javascript">
+		var imageMap = {
+			1:'spidey',
+			2:'waldo',
+			3:'megaman',
+			4:'rainbowdash',
+			5:'ironman',
+			6:'mario',
+			7:'link',
+			8:'scarlet',
+			9:'wolverine',
+			10:'trooper',
+			11:'ninja',
+		}
+		
 		$(document).ready(function() {
 			$('.card').click(function(){
 				var card = $(this);
+				var imageId = card.find('span.imageId').text();
+				var imageClass = imageMap[imageId];
+				
 				if(!card.hasClass('clicked')){
 					card.flippy({
-						verso:'<div class="card"><span class="image wolverine"></span></div>',
+						verso: '<div class="card"><span class="image ' + imageClass + '"></span></div>',
 						duration:"400",
 						onFinish:function(){
 							card.addClass('clicked');
-							// todo: update scoreboard if match
+							/* todo: 
+								- check for match
+								- flash if match ?
+								- update scoreboard if match
+							*/
 						}
 					});
 				}
@@ -103,6 +124,52 @@
 			background: url('images/catsheet.png') no-repeat -504px -29px;
 		}
 		
+		.spidey {
+			background: url('images/catsheet.png') no-repeat -205px -157px;
+		}
+
+		.waldo {
+			background: url('images/catsheet.png') no-repeat -24px -343px;
+		}
+		
+		.mario {
+			background: url('images/catsheet.png') no-repeat -503px -348px;
+		}
+		
+		.scarlet {
+			background: url('images/catsheet.png') no-repeat -354px -180px;
+		}
+		
+		.rainbowdash {
+			background: url('images/catsheet.png') no-repeat -18px -176px;
+			/*
+			todo: figure out if this works. I know it works for exact pixel size.
+			-moz-background-size: 90%;
+			background-size: 90%;
+			-webkit-background-size: 90%;
+			*/
+		}
+
+		.trooper {
+			background: url('imgs/catsheet.png') no-repeat -208px -32px;
+		}
+
+		.megaman {
+			background: url('images/catsheet.png') no-repeat -209px -356px;
+		}
+		
+		.link {
+			background: url('imgs/catsheet.png') no-repeat -364px -28px;
+		}
+		
+		.ironman {
+			background: url('images/catsheet.png') no-repeat -21px -22px;
+		}
+				
+		.ninja {
+			background: url('images/catsheet.png') no-repeat -491px -176px;
+		}
+				
 	</style>
 </head>
 <body>
@@ -115,58 +182,28 @@ Octocat Matching
 <tr>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">9</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">9</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">2</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td>
-		<div class="card">
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">2</span>
 			<span class="image wolverine">
 			</span>
 		</div>
@@ -175,28 +212,58 @@ Octocat Matching
 <tr>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">3</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">3</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">4</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
 		<div class="card">
-			<span class="imageId">1</span>
+			<span class="imageId">4</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		<div class="card">
+			<span class="imageId">5</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
+			<span class="imageId">5</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
+			<span class="imageId">6</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
+			<span class="imageId">6</span>
 			<span class="image wolverine">
 			</span>
 		</div>
