@@ -1,22 +1,32 @@
 <html>
 <head>
-	<title>Octomatching</title>
-	<script src="js/jquery-min-1.9.1"></script>
+	<title>Octo-Matching</title>
+	<script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
+	<script src="js/flippy.min.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.card').click(function(){
+				var card = $(this);
+				if(!card.hasClass('clicked')){
+					card.flippy({
+						verso:'<div class="card"><span class="image wolverine"></span></div>',
+						duration:"400",
+						onFinish:function(){
+							card.addClass('clicked');
+							// todo: update scoreboard if match
+						}
+					});
+				}
+			});
+		});
+	</script>
+	
 	<style>
-		#content {
-			width: 80%;
-			margin-left: 10%;
-			margin-right: 10%;
-		}
-		
-		#title {
-			height: 17%;
-			text-align: center;
-			font-size: 20px;
-			background-color:#333;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
-			margin-bottom: 1%;
+		html {
+			font-family: Verdana,Arial,sans-serif;
+			font-style:normal;
+			font-size:1.1 em;
 		}
 		
 		body {
@@ -35,8 +45,25 @@
 			min-width: 5%;
 			height: 140px;
 		}
+
+
+		#content {
+			width: 80%;
+			margin-left: 10%;
+			margin-right: 10%;
+		}
 		
-		#board div {
+		#header {
+			height: 17%;
+			text-align: center;
+			font-size: 20px;
+			background-color:#333;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			margin-bottom: 1%;
+		}
+					
+		.card {
 			height: 100%;
 			width: 100%;
 			-moz-border-radius: 10px;
@@ -64,9 +91,9 @@
 		}
 		
 		#board div:hover { 
-			-webkit-transform: rotate(-2deg); 
-			-moz-transform: rotate(-2deg); 
-			-o-transform: rotate(-2deg); 
+			-webkit-transform: rotate(-1deg); 
+			-moz-transform: rotate(-1deg); 
+			-o-transform: rotate(-1deg); 
 			-moz-box-shadow: 0 0 8px #888;
 			-webkit-box-shadow: 0 0 8px #888;
 			box-shadow: 0 0 8px #888;
@@ -80,65 +107,35 @@
 </head>
 <body>
 <section id="content">
-<section id="title">
+<section id="header">
 Octocat Matching
 </section>
 <section id="board">
 <table>
 <tr>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td>
-		<div>
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div>
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div>
-			<span class="imageId">1</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
@@ -147,28 +144,58 @@ Octocat Matching
 </tr>
 <tr>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
 		</div>
 	</td>
 	<td>
-		<div>
+		<div class="card">
+			<span class="imageId">1</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+</tr>
+<tr>
+	<td>
+		<div class="card">
+			<span class="imageId">1</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
+			<span class="imageId">1</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
+			<span class="imageId">1</span>
+			<span class="image wolverine">
+			</span>
+		</div>
+	</td>
+	<td>
+		<div class="card">
 			<span class="imageId">1</span>
 			<span class="image wolverine">
 			</span>
