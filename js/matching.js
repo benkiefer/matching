@@ -76,7 +76,7 @@ $(document).ready(function() {
 			
 				if (firstChoice != null && secondChoice != null){
 					// check matches and wait a couple of seconds so user can see results
-					setTimeout(checkForMatch, 1500);
+					setTimeout(checkForMatch, 1000);
 				} else {
 					locked = false;
 				}
@@ -110,6 +110,7 @@ $(document).ready(function() {
 				}
 			});					
 		}
+
 		firstChoice = null;
 		secondChoice = null;
 		locked = false;
@@ -119,7 +120,7 @@ $(document).ready(function() {
 		if (matchCount == possibleMatches){
 			// reset!!!
 			matchCount = 0;
-			$('#board').find('.flipper').delay(1000).removeClass('flipped matched');
+			$('.flipper').delay(1000).removeClass('flipped matched');
 			prepareGameBoard();
 		}
 	}
