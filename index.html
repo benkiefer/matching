@@ -2,7 +2,7 @@
 <head>
 	<title>Octo-Matching</title>
 	<script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
-	<script src="js/flippy.min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="css/sprites.css">
 	
 	<script type="text/javascript">
 		var imageMap = {
@@ -20,24 +20,25 @@
 		}
 		
 		$(document).ready(function() {
-			$('.card').click(function(){
-				var card = $(this);
-				var imageId = card.find('span.imageId').text();
-				var imageClass = imageMap[imageId];
-				
-				if(!card.hasClass('clicked')){
-					card.flippy({
-						verso: '<div class="card"><span class="image ' + imageClass + '"></span></div>',
-						duration:"400",
-						onFinish:function(){
-							card.addClass('clicked');
-							/* todo: 
-								- check for match
-								- flash if match ?
-								- update scoreboard if match
-							*/
-						}
-					});
+			$('#board tr td').hover(
+				function(){
+					if(!$(this).find('.flipper').hasClass('flipped')){
+						$(this).addClass('clickable');
+					}
+				},
+				function(){
+					$(this).removeClass('clickable');
+				}
+			);
+			
+			$('.flipper').click(function(){
+				if(!$(this).hasClass('flipped')){
+					var imageId = parseInt($(this).find('span.imageId').text());
+					var imageClass = imageMap[imageId];
+					
+					var backSide = $(this).find('.back').find('.image');
+					backSide.addClass(imageClass);
+					$(this).addClass('flipped');
 				}
 			});
 		});
@@ -53,21 +54,7 @@
 		body {
 			background-color: #eee;
 		}
-		
-		table {
-			width: 100%;
-			border: none;
-			padding: 0px;
-			align: center;
-		}
-		
-		td {
-			padding: 0.9%;
-			min-width: 5%;
-			height: 140px;
-		}
-
-
+				
 		#content {
 			width: 80%;
 			margin-left: 10%;
@@ -83,35 +70,30 @@
 			border-radius: 10px;
 			margin-bottom: 1%;
 		}
-					
-		.card {
-			height: 100%;
+			
+		table {
+			table-layout: fixed;
 			width: 100%;
-			-moz-border-radius: 10px;
-			border-radius: 10px;
+			border: none;
+			align: center;
+		}
+		
+		td {		    
+			min-width: 5%;
+			height: 140px;
 			background-color: white;
 			-moz-box-shadow: 0 0 5px #888;
 			-webkit-box-shadow: 0 0 5px #888;
 			box-shadow: 0 0 5px #888;
+			-moz-border-radius: 10px;
+			border-radius: 10px;
 		}
-		
+
 		.imageId {
 			display: none;
 		}
 		
-		.image {
-			display:inline-block;
-			width: 50%;
-			height: 100%;
-			margin-top: 10px;
-			margin-left: 25%	;
-			margin-right: auto;
-			-moz-box-shadow: none;
-			-webkit-box-shadow: none;
-			box-shadow: none;
-		}
-		
-		#board div:hover { 
+		.clickable { 
 			-webkit-transform: rotate(-1deg); 
 			-moz-transform: rotate(-1deg); 
 			-o-transform: rotate(-1deg); 
@@ -119,158 +101,130 @@
 			-webkit-box-shadow: 0 0 8px #888;
 			box-shadow: 0 0 8px #888;
 		}
-		
-		.wolverine {
-			background: url('images/catsheet.png') no-repeat -504px -29px;
-		}
-		
-		.spidey {
-			background: url('images/catsheet.png') no-repeat -205px -157px;
+			
+		/* entire container, keeps perspective */
+		.flip-container {
+			perspective: 1000;
+			-webkit-perspective: 1000;
 		}
 
-		.waldo {
-			background: url('images/catsheet.png') no-repeat -24px -343px;
+		.flipped {
+			transform: rotateY(180deg);
+			-webkit-transform: rotateY(180deg);
 		}
 		
-		.mario {
-			background: url('images/catsheet.png') no-repeat -503px -348px;
-		}
-		
-		.scarlet {
-			background: url('images/catsheet.png') no-repeat -354px -180px;
-		}
-		
-		.rainbowdash {
-			background: url('images/catsheet.png') no-repeat -18px -176px;
-			/*
-			todo: figure out if this works. I know it works for exact pixel size.
-			-moz-background-size: 90%;
-			background-size: 90%;
-			-webkit-background-size: 90%;
-			*/
+		.image {
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;
 		}
 
-		.trooper {
-			background: url('imgs/catsheet.png') no-repeat -208px -32px;
+		.flip-container, .front, .back {
+			width: 100%;
+			height: 100%;
 		}
 
-		.megaman {
-			background: url('images/catsheet.png') no-repeat -209px -356px;
+		/* flip speed goes here */
+		.flipper {
+			transition: 0.6s;
+			-webkit-transition: 0.6s;
+			transform-style: preserve-3d;
+			-webkit-transform-style: preserve-3d;
+			position: relative;
+		}
+
+		/* hide back of pane during swap */
+		.front, .back {
+			backface-visibility: hidden;
+			-webkit-backface-visibility: hidden;
+			position: absolute;
+		}
+
+		/* front pane, placed above back */
+		.front {
+			z-index: 2;
+		}
+
+		/* back, initially hidden pane */
+		.back {
+			-webkit-transform: rotateY(180deg);
+			transform: rotateY(180deg);
 		}
 		
-		.link {
-			background: url('imgs/catsheet.png') no-repeat -364px -28px;
-		}
-		
-		.ironman {
-			background: url('images/catsheet.png') no-repeat -21px -22px;
-		}
-				
-		.ninja {
-			background: url('images/catsheet.png') no-repeat -491px -176px;
-		}
-				
 	</style>
+
 </head>
 <body>
 <section id="content">
+
 <section id="header">
-Octocat Matching
+	Octocat Matching
 </section>
-<section id="board">
-<table>
+
+<table id="board">
 <tr>
 	<td>
-		<div class="card">
-			<span class="imageId">9</span>
-			<span class="image wolverine">
-			</span>
+		<div class="flip-container">
+			<div class="flipper">
+				<span class="imageId">1</span>
+				<div class="front">
+					<div class="image wolverine">
+					</div>
+				</div>
+				<div class="back">
+					<div class="image">
+					</div>
+				</div>
+			</div>
 		</div>
-	</td>
+	</td>	
 	<td>
-		<div class="card">
-			<span class="imageId">9</span>
-			<span class="image wolverine">
-			</span>
+		<div class="flip-container">
+			<div class="flipper">
+				<span class="imageId">1</span>
+				<div class="front">
+					<div class="image wolverine">
+					</div>
+				</div>
+				<div class="back">
+					<div class="image">
+					</div>
+				</div>
+			</div>
 		</div>
-	</td>
+	</td>	
 	<td>
-		<div class="card">
-			<span class="imageId">2</span>
-			<span class="image wolverine">
-			</span>
+		<div class="flip-container">
+			<div class="flipper">
+				<span class="imageId">2</span>
+				<div class="front">
+					<div class="image wolverine">
+					</div>
+				</div>
+				<div class="back">
+					<div class="image">
+					</div>
+				</div>
+			</div>
 		</div>
-	</td>
+	</td>	
 	<td>
-		<div class="card">
-			<span class="imageId">2</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td>
-		<div class="card">
-			<span class="imageId">3</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">3</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">4</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">4</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-</tr>
-<tr>
-	<td>
-		<div class="card">
-			<span class="imageId">5</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">5</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">6</span>
-			<span class="image wolverine">
-			</span>
-		</div>
-	</td>
-	<td>
-		<div class="card">
-			<span class="imageId">6</span>
-			<span class="image wolverine">
-			</span>
+		<div class="flip-container">
+			<div class="flipper">
+				<span class="imageId">2</span>
+				<div class="front">
+					<div class="image wolverine">
+					</div>
+				</div>
+				<div class="back">
+					<div class="image">
+					</div>
+				</div>
+			</div>
 		</div>
 	</td>
 </tr>
 </table>
-</section>
 </section>
 </body>
 </html>
