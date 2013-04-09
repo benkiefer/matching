@@ -2,9 +2,8 @@
 
 ##Todo
  - Start a new game after finished matching.
- - Randomly assign images
- - Finalize Page Layout
- - Finalize Styling
+ - Phase out wolverine as the front card
+ - Add kudos to flip css blog and github octocat
  - Publish
  - Different Difficulties?
  - Two-player scoring?
