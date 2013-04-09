@@ -30,9 +30,9 @@
 				function(){
 					$(this).find('.front, .back').removeClass('selected-card');
 					$(this).find('.front, .back').addClass('card');
-					}
+				}
 			);
-			
+						
 			$('.flipper').click(function(){
 				var card = $(this);
 				if(!card.hasClass('flipped')){
@@ -42,8 +42,44 @@
 					var backSide = card.find('.back').find('.image');
 					backSide.addClass(imageClass);
 					card.addClass('flipped');
+					updateChoices(imageId);
+					setTimeout(checkForMatch, 2000);
 				}
 			});
+			
+			var firstChoice = null;
+			var secondChoice = null;
+		
+			function updateChoices(imageId){
+				if (firstChoice == null){
+					firstChoice = imageId;
+				} else if (secondChoice == null){
+					secondChoice = imageId;
+				}
+			}
+		
+			function checkForMatch(imageId){				
+				if (firstChoice != null && secondChoice != null){
+					if (firstChoice == secondChoice){
+						// Match!
+						$('#board').find('.flipped').each(function(){
+							if (!$(this).hasClass('matched')){
+								$(this).addClass('matched');
+							}
+						});
+					} else {
+						// No Match!
+						$('#board').find('.flipped').each(function(){
+							if (!$(this).hasClass('matched')){
+								$(this).removeClass('flipped');
+							}
+						});					
+					}
+					firstChoice = null;
+					secondChoice = null;
+				}
+			}		
+
 		});
 	</script>
 	

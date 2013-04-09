@@ -1,7 +1,7 @@
 #Matching
 
 ##Todo
- - Turn the cards back over if you fail to match.
+ - Start a new game after finished matching.
  - Randomly assign images
  - Finalize Page Layout
  - Finalize Styling
