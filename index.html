@@ -20,6 +20,8 @@
 			10:'trooper',
 			11:'ninja',
 		}
+
+		var possibleMatches = 8;
 		
 		function shuffle(array) {
 			var tmp, current, top = array.length;
@@ -36,7 +38,7 @@
 		
 		function prepareGameBoard(){
 			var keys = shuffle(Object.keys(imageMap));
-			var sliced = keys.slice(0, 8);
+			var sliced = keys.slice(0, possibleMatches);
 			var items = shuffle(sliced.concat(sliced));
 			
 			$('#board').find('span.imageId').each(function(index){
@@ -46,6 +48,7 @@
 		
 		$(document).ready(function() {
 			prepareGameBoard();
+			
 			$('.flipper').hover(
 				function(){
 					if(!$(this).hasClass('flipped')){
@@ -60,7 +63,10 @@
 			);
 			
 			var locked = false;
-						
+			var firstChoice = null;
+			var secondChoice = null;
+			var matchCount = 0;
+			
 			$('.flipper').click(function(){
 				if (!locked){
 					var card = $(this);
@@ -84,10 +90,7 @@
 					}
 				}
 			});
-			
-			var firstChoice = null;
-			var secondChoice = null;
-		
+					
 			function updateChoices(imageId){
 				if (firstChoice == null){
 					firstChoice = imageId;
@@ -104,6 +107,8 @@
 							$(this).addClass('matched');
 						}
 					});
+					matchCount += 1;
+					checkForGameOver();
 				} else {
 					// No Match!
 					$('#board').find('.flipped').each(function(){
@@ -115,7 +120,16 @@
 				firstChoice = null;
 				secondChoice = null;
 				locked = false;
-			}		
+			}
+			
+			function checkForGameOver(){
+				if (matchCount == possibleMatches){
+					// reset!!!
+					matchCount = 0;
+					$('#board').find('.flipper').delay(1000).removeClass('flipped matched');
+					prepareGameBoard();
+				}
+			}
 
 		});
 	</script>
