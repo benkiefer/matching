@@ -58,18 +58,30 @@
 					$(this).find('.front, .back').addClass('card');
 				}
 			);
+			
+			var locked = false;
 						
 			$('.flipper').click(function(){
-				var card = $(this);
-				if(!card.hasClass('flipped')){
-					var imageId = parseInt(card.find('span.imageId').text());
-					var imageClass = imageMap[imageId];
+				if (!locked){
+					var card = $(this);
+					if(!card.hasClass('flipped')){
+						locked = true;
+						var imageId = parseInt(card.find('span.imageId').text());
+						var imageClass = imageMap[imageId];
+						
+						var backSide = card.find('.back').find('.image');
+						backSide.addClass(imageClass);
+						card.addClass('flipped');
+						
+						updateChoices(imageId);
 					
-					var backSide = card.find('.back').find('.image');
-					backSide.addClass(imageClass);
-					card.addClass('flipped');
-					updateChoices(imageId);
-					setTimeout(checkForMatch, 2000);
+						if (firstChoice != null && secondChoice != null){
+							// check matches and wait a couple of seconds so user can see results
+							setTimeout(checkForMatch, 1500);
+						} else {
+							locked = false;
+						}
+					}
 				}
 			});
 			
@@ -85,25 +97,24 @@
 			}
 		
 			function checkForMatch(imageId){				
-				if (firstChoice != null && secondChoice != null){
-					if (firstChoice == secondChoice){
-						// Match!
-						$('#board').find('.flipped').each(function(){
-							if (!$(this).hasClass('matched')){
-								$(this).addClass('matched');
-							}
-						});
-					} else {
-						// No Match!
-						$('#board').find('.flipped').each(function(){
-							if (!$(this).hasClass('matched')){
-								$(this).removeClass('flipped');
-							}
-						});					
-					}
-					firstChoice = null;
-					secondChoice = null;
+				if (firstChoice == secondChoice){
+					// Match!
+					$('#board').find('.flipped').each(function(){
+						if (!$(this).hasClass('matched')){
+							$(this).addClass('matched');
+						}
+					});
+				} else {
+					// No Match!
+					$('#board').find('.flipped').each(function(){
+						if (!$(this).hasClass('matched')){
+							$(this).removeClass('flipped');
+						}
+					});					
 				}
+				firstChoice = null;
+				secondChoice = null;
+				locked = false;
 			}		
 
 		});
