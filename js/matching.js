@@ -28,6 +28,7 @@ function shuffle(array) {
 }
 
 function prepareGameBoard(){
+	$('.back .image').attr('class', 'image');
 	var keys = shuffle(Object.keys(imageMap));
 	var sliced = keys.slice(0, possibleMatches);
 	var items = shuffle(sliced.concat(sliced));

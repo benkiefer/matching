@@ -36,6 +36,13 @@ td {
 	-webkit-perspective: 1000;
 }
 
+.ieFlipHack {
+   -webkit-transform: rotateY(360deg);
+   -ms-transform: rotateY(360deg);
+   -moz-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+}
+
 .flipped {
 	transform: rotateY(180deg);
 	-webkit-transform: rotateY(180deg);
