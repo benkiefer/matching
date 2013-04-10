@@ -7,9 +7,7 @@ var imageMap = {
 	6:'mario',
 	7:'link',
 	8:'scarlet',
-	/*
 	9:'wolverine',
-	*/
 	10:'trooper',
 	11:'ninja',
 }

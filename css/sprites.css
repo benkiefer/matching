@@ -63,3 +63,9 @@
 	width: 140px;
 	height: 122px;
 }
+
+.octocat {
+	background: url('../images/catsheet.png') no-repeat -630px -28px;
+	width: 122px;
+	height: 107px;
+}
