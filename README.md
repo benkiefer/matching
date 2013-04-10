@@ -1,7 +1,12 @@
 #Matching
+A simple matching game written as a demo for my daughter's class at school.
+
+##Supported Browsers
+ - Chrome
+ - Firefox
 
 ##Todo
- - Fix IE8
+ - Fix IE10
  - Victory dance of some form.
  - Card front should be a different color
  - Different Difficulties?
