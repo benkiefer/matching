@@ -6,7 +6,7 @@ A simple matching game written as a demo for my daughter's class at school.
  - Firefox
 
 ##Todo
- - Fix IE10
+ - Fix IE10 (last remaining issue appears to be the [backface-visibility](http://jsfiddle.net/reybango/ax2Mc/))
  - Victory dance of some form.
  - Card front should be a different color
  - Different Difficulties?
