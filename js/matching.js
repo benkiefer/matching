@@ -9,7 +9,7 @@ var imageMap = {
 	8:'scarlet',
 	9:'wolverine',
 	10:'trooper',
-	11:'ninja',
+	11:'ninja'
 }
 
 var possibleMatches = 8;
