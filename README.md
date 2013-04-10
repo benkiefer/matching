@@ -1,6 +1,7 @@
 #Matching
 
 ##Todo
+ - Fix IE8
  - Victory dance of some form.
  - Card front should be a different color
  - Different Difficulties?
