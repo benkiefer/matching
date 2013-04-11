@@ -1,6 +1,8 @@
 #Matching
 A simple matching game written as a demo for my daughter's class at school.
 
+[Check it out](http://benkiefer.github.com/matching)
+
 ##Supported Browsers
  - Chrome
  - Firefox
