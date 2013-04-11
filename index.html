@@ -3,28 +3,38 @@
 	<title>Octo-Matching</title>
 	<script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
 	<script src="js/keys.js" type="text/javascript"></script>
-	<script src="js/matching.js" type="text/javascript"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/sprites.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="js/modernizr.js" type="text/javascript"></script>
 	
 	<script type="text/javascript">
 
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-39603508-2']);
-	  _gaq.push(['_trackPageview']);
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-39603508-2']);
+		  _gaq.push(['_trackPageview']);
 
-	  (function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+		  (function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
 
+		Modernizr.load({
+			test: Modernizr.borderradius && Modernizr.csstransitions && Modernizr.csstransforms && Modernizr.cssanimations && Modernizr.boxshadow,
+			yep : 'js/matching.js',
+			nope: 'js/failure.js'
+		});
 	</script>
 
 </head>
 <body>
 <section id="content">
-
+<div id="warning">
+	<p>This site uses browser features that are beyond the capabilities of your current browser.</p> 
+	<p>Try using the latest versions of Chrome or Firefox.</p>
+</div>
 <table id="board">
 <tr>
 	<td>

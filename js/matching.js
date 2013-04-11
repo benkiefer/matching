@@ -39,6 +39,7 @@ function prepareGameBoard(){
 }
 
 $(document).ready(function() {
+	$('#warning').hide();
 	prepareGameBoard();
 	
 	$('.flipper').hover(
@@ -122,6 +123,5 @@ $(document).ready(function() {
 			$('.flipper').delay(1000).removeClass('flipped matched');
 			prepareGameBoard();
 		}
-	}
-
+	}	
 });
