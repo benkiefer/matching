@@ -104,7 +104,7 @@ td {
 /* front pane, placed above back */
 .front {
 	z-index: 2;
-	background-color: #434344;
+	background-color: #73787A;
 }
 
 /* back, initially hidden pane */
