@@ -21,8 +21,11 @@ If you are interested in making your own version of the matching game, here are 
  - Update the 'js/matching.js' imageMap variable with the names of the classes you want to use.
  
 ##Thanks
+ - The [Github Octocat](http://octodex.github.com/) is property of Github, and the usage of the various Octocat images in this game are intended solely for the entertainment of four-year-olds. I'm happy to change the images used upon request.
  - [whelmingbytes](https://github.com/whelmingbytes) for testing.
- - The Github Octocat is property of Github, and the usage of the various Octocat images in this game are intended solely for the entertainment of four-year-olds. I'm happy to change the images used upon request.
  - Thanks to David Walsh for a nice tutorial on [flipping with CSS](http://davidwalsh.name/css-flip).
  - [Sprite Cow](http://www.spritecow.com/) saved me a lot of time trying to figure out the coordinates for all of the images on my sprite sheet.
  - [Pixlr](http://pixlr.com/) was used to make my sprite sheet and resolve some transparency issues with the source image.
+ 
+##License
+For license information, see the License.txt file. License does not extend to image files, which are property of Github, as described above.
