@@ -67,7 +67,6 @@ td {
 	
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	background-color: white;
 }
 
 .selected-card {
@@ -78,11 +77,10 @@ td {
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 
-	background-color: white;
-	
-	-webkit-transform: rotate(-1deg); 
-	-moz-transform: rotate(-1deg); 
-	-o-transform: rotate(-1deg); 
+	-webkit-transform: rotate(-2deg); 
+	-moz-transform: rotate(-2deg); 
+	-o-transform: rotate(-2deg); 
+	-ms-transform: rotate(-2deg); 
 }
 
 /* flip speed goes here */
@@ -106,10 +104,12 @@ td {
 /* front pane, placed above back */
 .front {
 	z-index: 2;
+	background-color: #434344;
 }
 
 /* back, initially hidden pane */
 .back {
 	-webkit-transform: rotateY(180deg);
 	transform: rotateY(180deg);
+	background-color: white;
 }
