@@ -13,7 +13,7 @@ A simple matching game written as a demo for my daughter's class at school.
  - Two-player scoring?
 
 ## Issues
-[Go take a look](https://github.com/benkiefer/matching/issues). Feel free to ignore just about anything Spencer posts.
+[Go take a look](https://github.com/benkiefer/matching/issues). Feel free to fix anything Spencer posts.
  
 ##Usage
 If you are interested in making your own version of the matching game, here are some tips:
