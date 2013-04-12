@@ -8,11 +8,13 @@ A simple matching game written as a demo for my daughter's class at school.
  - Firefox
 
 ##Todo
- - Fix IE10 (last remaining issue appears to be the [backface-visibility](http://jsfiddle.net/reybango/ax2Mc/))
  - Victory dance of some form.
  - Different Difficulties?
  - Two-player scoring?
 
+## Issues
+[Go take a look](https://github.com/benkiefer/matching/issues). Feel free to ignore just about anything Spencer posts.
+ 
 ##Usage
 If you are interested in making your own version of the matching game, here are some tips:
  - Clone this repository.
