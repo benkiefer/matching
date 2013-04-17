@@ -69,6 +69,7 @@ $(document).ready(function () {
     var secondChoice = null;
     var matchCount = 0;
     var clicks = 0;
+    var highscore = 0;
 
     $('.flipper').click(function () {
         if (!locked) {
@@ -127,9 +128,17 @@ $(document).ready(function () {
         locked = false;
     }
 
+    function updateHighScore(){
+        if (highscore == 0 || clicks < highscore) {
+            highscore = clicks;
+        }
+    }
+
     function checkForGameOver() {
         if (matchCount == possibleMatches) {
+            updateHighScore();
             $('#clickCount').html(clicks);
+            $('#highScore').html(highscore);
             $('.gameboard').addClass('dim');
             $('.scoreboard').show();
         }

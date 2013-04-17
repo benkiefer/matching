@@ -8,7 +8,6 @@ A simple matching game written as a demo for my daughter's class at school.
  - Firefox
 
 ##Todo
- - Same session high-score
  - Different Difficulties?
  - Two-player scoring?
 

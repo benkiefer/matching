@@ -307,9 +307,20 @@
 <section class="scoreboard">
     <div class="scoresheet deadcenter">
         <div class="details">
-            <h1>Congratulations!</h1>
-            <label>Clicks:</label><span id="clickCount">20</span>
-            <br>
+            <p>Congratulations!</p>
+            <hr>
+            <div class="columns">
+                <div class="rightText">
+                    <p>Clicks:</p>
+                    <p>High Score:</p>
+                </div>
+                <div>
+                    <p><span id="clickCount">&nbsp;</span></p>
+                    <p><span id="highScore">&nbsp;</span></p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <hr>
             <input id="playAgain" type="button" value="Play Again"/>
         </div>
     </div>

@@ -125,14 +125,15 @@ td {
 
 .scoresheet {
     width: 30%;
-    height: 30%;
+    height: 40%;
+    color: #222222;
     -moz-box-shadow: 0 0 100px black;
     -webkit-box-shadow: 0 0 100px black;
     box-shadow: 0 0 100px black;
     background-color: white;
     -moz-border-radius: 10px;
     border-radius: 8px;
-    border: 5px solid black;
+    border: 3px solid #222222;
 }
 
 .deadcenter {
@@ -166,15 +167,15 @@ td {
     color: white;
     padding: 10px 20px;
     font: bold 20px/100% Arial, Helvetica, sans-serif;
-    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#666666));
-    background: -moz-linear-gradient(top,  #cccccc,  #666666);
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#222222));
+    background: -moz-linear-gradient(top,  #cccccc,  #222222);
     -moz-border-radius: 10px;
     border-radius: 8px;
 }
 
 #playAgain:hover {
-    background: -webkit-gradient(linear, left top, left bottom, from(#aaccdd), to(#666666));
-    background: -moz-linear-gradient(top,  #aaccdd,  #666666);
+    background: -webkit-gradient(linear, left top, left bottom, from(#aaccdd), to(#222222));
+    background: -moz-linear-gradient(top,  #aaccdd,  #222222);
 }
 
 .details {
@@ -182,4 +183,21 @@ td {
     margin-left: 20%;
     margin-right: 20%;
     margin-top: 7%;
+}
+
+.columns {
+    width: 100%;
+}
+
+.rightText {
+    text-align: right;
+}
+
+.columns div {
+    float: left;
+    width: 50%;
+}
+
+.clear {
+    clear: both;
 }
