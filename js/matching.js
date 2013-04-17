@@ -39,7 +39,7 @@ function prepareGameBoard() {
 }
 
 $(document).ready(function () {
-    $('.scoreboard').hide();
+    $('.scoreboard').fadeOut(1000);
     prepareGameBoard();
 
     $('.flipper').hover(
@@ -140,7 +140,7 @@ $(document).ready(function () {
             $('#clickCount').html(clicks);
             $('#highScore').html(highscore);
             $('.gameboard').addClass('dim');
-            $('.scoreboard').show();
+            $('.scoreboard').fadeIn(1000);
         }
     }
 });
