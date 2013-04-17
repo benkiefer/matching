@@ -1,292 +1,325 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Octo-Matching</title>
-	<script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
-	<script src="js/keys.js" type="text/javascript"></script>
+    <title>Octo-Matching</title>
+    <script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
+    <script src="js/keys.js" type="text/javascript"></script>
 
-	<link rel="stylesheet" type="text/css" href="css/sprites.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/sprites.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
-	<script src="js/modernizr.js" type="text/javascript"></script>
-	<script src="js/modernizr-preserve-3d-check.js" type="text/javascript"></script>
-	
-	<script type="text/javascript">
+    <script src="js/modernizr.js" type="text/javascript"></script>
+    <script src="js/modernizr-preserve-3d-check.js" type="text/javascript"></script>
 
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-39603508-2']);
-		  _gaq.push(['_trackPageview']);
+    <script type="text/javascript">
 
-		  (function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-			
-		Modernizr.load({
-			test: Modernizr.borderradius && Modernizr.csstransitions && Modernizr.csstransforms && Modernizr.csstransformspreserve3d && Modernizr.cssanimations && Modernizr.boxshadow,
-			yep : 'js/matching.js',
-			nope: 'js/failure.js'
-		});
-	</script>
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-39603508-2']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+
+        Modernizr.load({
+            test: Modernizr.borderradius && Modernizr.csstransitions && Modernizr.csstransforms && Modernizr.csstransformspreserve3d && Modernizr.cssanimations && Modernizr.boxshadow,
+            yep: 'js/matching.js',
+            nope: 'js/failure.js'
+        });
+    </script>
 
 </head>
 <body>
-<section id="content">
-<div id="warning">
-	<p>This site uses browser features that are beyond the capabilities of your current browser.</p> 
-	<p>Try using the latest versions of Chrome or Firefox.</p>
-</div>
+<section class="gameboard">
 <table id="board">
 <tr>
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">1</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back card">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">1</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back card">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">2</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">2</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">1</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back card">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">1</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back card">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">2</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">2</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">3</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">3</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">4</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">4</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">3</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">3</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">4</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">4</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">5</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">5</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">6</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">6</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">5</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">5</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">6</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">6</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
 </tr>
 <tr>
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">7</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">7</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">8</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>	
-	<td>
-		<div class="flip-container">
-			<div class="flipper">
-				<span class="imageId">8</span>
-				<div class="front card">
-					<div class="image octocat">
-					</div>
-				</div>
-				<div class="back">
-					<div class="image">
-					</div>
-				</div>
-			</div>
-		</div>
-	</td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">7</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">7</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">8</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
+    <td>
+        <div class="flip-container">
+            <div class="flipper">
+                <span class="imageId">8</span>
+
+                <div class="front card">
+                    <div class="image octocat">
+                    </div>
+                </div>
+                <div class="back">
+                    <div class="image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </td>
 </tr>
 </table>
 </section>
+
+<section class="scoreboard">
+    <div class="scoresheet deadcenter">
+        <div class="details">
+            <h1>Congratulations!</h1>
+            <label>Clicks:</label><span id="clickCount">20</span>
+            <br>
+            <input id="playAgain" type="button" value="Play Again"/>
+        </div>
+    </div>
+</section>
+
+<section id="warning">
+    <p>This site uses browser features that are beyond the capabilities of your current browser.</p>
+
+    <p>Try using the latest versions of Chrome or Firefox.</p>
+</section>
+
 </body>
 </html> 	

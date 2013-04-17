@@ -1,3 +1,5 @@
 $(document).ready(function() {
-	$('#board').hide();
+	$('.scoreboard').hide();
+	$('.gameboard').hide();
+    $('#warning').show();
 });

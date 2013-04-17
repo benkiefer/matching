@@ -1,118 +1,185 @@
 html {
-	font-family: Verdana,Arial,sans-serif;
-	font-style:normal;
-	font-size:1.1 em;
+    font-family: Verdana, Arial, sans-serif;
+    font-style: normal;
+    font-size: 1.1em;
 }
 
-body {
-	background-color: #eee;
-}
-		
-#content {
-	margin-left: 10%;
-	margin-right: 10%;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+    background-color: #eee;
 }
 
 table {
-	table-layout: fixed;
-	width: 100%;
-	border: none;
-	align: center;
-	border-spacing: 20px;
+    table-layout: fixed;
+    width: 100%;
+    border: none;
+    border-spacing: 20px;
 }
 
 #warning {
-	text-align: center;
+    display: none;
+    position: relative;
+    text-align: center;
 }
 
 td {
-	min-width: 100%;
+    min-width: 100%;
 }
 
 .imageId {
-	display: none;
+    display: none;
 }
 
 /* entire container, keeps perspective */
 .flip-container {
-	perspective: 1000;
-	-webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-perspective: 1000;
 }
 
 .ieFlipHack {
-   -webkit-transform: rotateY(360deg);
-   -ms-transform: rotateY(360deg);
-   -moz-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
     transform: rotateY(360deg);
 }
 
 .flipped {
-	transform: rotateY(180deg);
-	-webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .image {
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:5%;
-	margin-bottom:5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 .flip-container, .front, .back {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .card {
-	-moz-box-shadow: 0 0 5px #888;
-	-webkit-box-shadow: 0 0 5px #888;
-	box-shadow: 0 0 5px #888;
-	
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px #888;
+    box-shadow: 0 0 5px #888;
+
+    -moz-border-radius: 10px;
+    border-radius: 10px;
 }
 
 .selected-card {
-	-moz-box-shadow: 0 0 20px #888;
-	-webkit-box-shadow: 0 0 20px #888;
-	box-shadow: 0 0 20px #888;
-	
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+    -moz-box-shadow: 0 0 20px #888;
+    -webkit-box-shadow: 0 0 20px #888;
+    box-shadow: 0 0 20px #888;
 
-	-webkit-transform: rotate(-2deg); 
-	-moz-transform: rotate(-2deg); 
-	-o-transform: rotate(-2deg); 
-	-ms-transform: rotate(-2deg); 
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
 }
 
 /* flip speed goes here */
 .flipper {
-	transition: 0.6s;
-	-webkit-transition: 0.6s;
-	transform-style: preserve-3d;
-	-webkit-transform-style: preserve-3d;
-	position: relative;
-	
-	height: 140px;			
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    position: relative;
+
+    height: 140px;
 }
 
 /* hide back of pane during swap */
 .front, .back {
-	backface-visibility: hidden;
-	-webkit-backface-visibility: hidden;
-	position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    position: absolute;
 }
 
 /* front pane, placed above back */
 .front {
-	z-index: 2;
-	background-color: #73787A;
+    z-index: 2;
+    background-color: #73787A;
 }
 
 /* back, initially hidden pane */
 .back {
-	-webkit-transform: rotateY(180deg);
-	transform: rotateY(180deg);
-	background-color: white;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    background-color: white;
+}
+
+.scoreboard {
+    display: none;
+    position: relative;
+    height: 100%;
+}
+
+.scoresheet {
+    width: 30%;
+    height: 30%;
+    -moz-box-shadow: 0 0 100px black;
+    -webkit-box-shadow: 0 0 100px black;
+    box-shadow: 0 0 100px black;
+    background-color: white;
+    -moz-border-radius: 10px;
+    border-radius: 8px;
+    border: 5px solid black;
+}
+
+.deadcenter {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.dim {
+    opacity: 0.4;
+    filter: alpha(opacity=70);
+}
+
+.gameboard {
+    top: 0;
+    position: absolute;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 100%;
+}
+
+#playAgain {
+    margin-top: 10px;
+    -moz-box-shadow: 0 0 5px black;
+    -webkit-box-shadow: 0 0 5px black;
+    text-shadow: 0 2px 2px rgba(0,0,0,.3);
+    box-shadow: 0 0 5px black;
+    color: white;
+    padding: 10px 20px;
+    font: bold 20px/100% Arial, Helvetica, sans-serif;
+    background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#666666));
+    background: -moz-linear-gradient(top,  #cccccc,  #666666);
+    -moz-border-radius: 10px;
+    border-radius: 8px;
+}
+
+#playAgain:hover {
+    background: -webkit-gradient(linear, left top, left bottom, from(#aaccdd), to(#666666));
+    background: -moz-linear-gradient(top,  #aaccdd,  #666666);
+}
+
+.details {
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 7%;
 }
