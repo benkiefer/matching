@@ -27,6 +27,7 @@ If you are interested in making your own version of the matching game, here are 
  - Thanks to David Walsh for a nice tutorial on [flipping with CSS](http://davidwalsh.name/css-flip).
  - [Sprite Cow](http://www.spritecow.com/) saved me a lot of time trying to figure out the coordinates for all of the images on my sprite sheet.
  - [Pixlr](http://pixlr.com/) was used to make my sprite sheet and resolve some transparency issues with the source image.
- 
+ - [Modernizr](http://modernizr.com/) was used to warn users trying to access with incompatible browsers.
+
 ##License
 For license information, see the License.txt file. License does not extend to image files, which are property of Github, as described above.
