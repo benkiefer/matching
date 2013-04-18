@@ -60,7 +60,7 @@ $(document).ready(function () {
 
     $('#playAgain').click(
         function () {
-            clicks = 0;
+            turns = 0;
             matchCount = 0;
             $('.flipper').delay(1000).removeClass('flipped matched');
             prepareGameBoard();
@@ -73,7 +73,7 @@ $(document).ready(function () {
     var firstChoice = null;
     var secondChoice = null;
     var matchCount = 0;
-    var clicks = 0;
+    var turns = 0;
     var highscore = 0;
 
     $('.flipper').click(function () {
@@ -89,10 +89,10 @@ $(document).ready(function () {
                 card.addClass('flipped');
 
                 updateChoices(imageId);
-                clicks += 1;
 
                 if (firstChoice != null && secondChoice != null) {
                     // check matches and wait a couple of seconds so user can see results
+                    turns += 1;
                     setTimeout(checkForMatch, 1000);
                 } else {
                     locked = false;
@@ -134,15 +134,15 @@ $(document).ready(function () {
     }
 
     function updateHighScore(){
-        if (highscore == 0 || clicks < highscore) {
-            highscore = clicks;
+        if (highscore == 0 || turns < highscore) {
+            highscore = turns;
         }
     }
 
     function checkForGameOver() {
         if (matchCount == possibleMatches) {
             updateHighScore();
-            $('#clickCount').html(clicks);
+            $('#turns').html(turns);
             $('#highScore').html(highscore);
             $('.gameboard').addClass('dim');
             $('.scoreboard').fadeIn(1000);
