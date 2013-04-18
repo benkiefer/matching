@@ -69,3 +69,33 @@
 	width: 122px;
 	height: 107px;
 }
+
+.kimono {
+	background: url('../images/catsheet.png') no-repeat 96.029% 71.843%;
+	width: 120px;
+	height: 117px;
+}
+
+.audrey {
+	background: url('../images/catsheet.png') no-repeat 27.861% 98.361%;
+	width: 136px;
+	height: 112px;
+}
+
+.mom {
+	background: url('../images/catsheet.png') no-repeat 51.825% 98.56%;
+	width: 115px;
+	height: 114px;
+}
+
+.mardigras {
+	background: url('../images/catsheet.png') no-repeat 52.562% 70.686%;
+	width: 117px;
+	height: 119px;
+}
+
+.aidorucat{
+	background: url('../images/catsheet.png') no-repeat 96.598% 36.722%;
+	width: 124px;
+	height: 118px;
+}

@@ -9,7 +9,12 @@ var imageMap = {
     8: 'scarlet',
     9: 'wolverine',
     10: 'trooper',
-    11: 'ninja'
+    11: 'ninja',
+    12: 'aidorucat',
+    13: 'audrey',
+    14: 'kimono',
+    15: 'mardigras',
+    16: 'mom'
 }
 
 var possibleMatches = 8;
