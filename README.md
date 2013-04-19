@@ -10,6 +10,7 @@ A simple matching game written as a demo for my daughter's class at school.
 ##Todo
  - Different Difficulties?
  - Two-player scoring?
+ - Key high score between visits
 
 ## Issues
 [Go take a look](https://github.com/benkiefer/matching/issues). Feel free to fix anything Spencer posts.
