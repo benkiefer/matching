@@ -65,7 +65,7 @@ td {
     border-radius: 10px;
 }
 
-@media screen {
+@media only screen {
     .selected-card {
         -moz-box-shadow: 0 0 20px #888;
         -webkit-box-shadow: 0 0 20px #888;
