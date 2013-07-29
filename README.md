@@ -6,7 +6,8 @@ A simple matching game written as a demo for my daughter's class at school.
 ##Supported Browsers
  - Chrome
  - Firefox
-
+ - Amazon Silk (Fire 7 HD, Fire 8.9 HD, not for Fire 7)
+ 
 ##Todo
  - Different Difficulties?
  - Two-player scoring?
