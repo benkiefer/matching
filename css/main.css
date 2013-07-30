@@ -60,25 +60,22 @@ td {
     -moz-box-shadow: 0 0 5px #888;
     -webkit-box-shadow: 0 0 5px #888;
     box-shadow: 0 0 5px #888;
+}
 
+.base-card {
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
 
-@media only screen {
-    .selected-card {
-        -moz-box-shadow: 0 0 20px #888;
-        -webkit-box-shadow: 0 0 20px #888;
-        box-shadow: 0 0 20px #888;
+.selected-card {
+    -moz-box-shadow: 0 0 20px #888;
+    -webkit-box-shadow: 0 0 20px #888;
+    box-shadow: 0 0 20px #888;
 
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-
-        -webkit-transform: rotate(-2deg);
-        -moz-transform: rotate(-2deg);
-        -o-transform: rotate(-2deg);
-        -ms-transform: rotate(-2deg);
-    }
+    -webkit-transform: rotate(-2deg);
+    -moz-transform: rotate(-2deg);
+    -o-transform: rotate(-2deg);
+    -ms-transform: rotate(-2deg);
 }
 
 /* flip speed goes here */
