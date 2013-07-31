@@ -47,11 +47,9 @@ $(document).ready(function () {
     $('.scoreboard').fadeOut(1000);
     prepareGameBoard();
 
-    $('.flipper').hover(
+    $('.flipper').not('.flipped').hover(
         function () {
-            if (!$(this).hasClass('flipped')) {
-                $(this).find('.front, .back').removeClass('card').addClass('selected-card');
-            }
+            $(this).find('.front, .back').removeClass('card').addClass('selected-card');
         },
         function () {
             $(this).find('.front, .back').removeClass('selected-card').addClass('card');
@@ -133,7 +131,7 @@ $(document).ready(function () {
         locked = false;
     }
 
-    function updateHighScore(){
+    function updateHighScore() {
         if (highscore == 0 || turns < highscore) {
             highscore = turns;
         }
