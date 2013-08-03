@@ -44,17 +44,21 @@ function prepareGameBoard() {
 }
 
 $(document).ready(function () {
+    var notouch = $('html').hasClass('no-touch');
+
     $('.scoreboard').fadeOut(1000);
     prepareGameBoard();
 
-    $('.flipper:not(.no-touch)').not('.flipped').hover(
-        function () {
-            $(this).find('.front, .back').removeClass('card').addClass('selected-card');
-        },
-        function () {
-            $(this).find('.front, .back').removeClass('selected-card').addClass('card');
-        }
-    );
+    if (notouch){
+        $('.flipper').not('.flipped').hover(
+            function () {
+                $(this).find('.front, .back').removeClass('card').addClass('selected-card');
+            },
+            function () {
+                $(this).find('.front, .back').removeClass('selected-card').addClass('card');
+            }
+        );
+    }
 
     $('#playAgain').click(
         function () {
