@@ -9,12 +9,14 @@ A simple matching game written as a demo for my daughter's class at school.
  - Amazon Silk (Fire 7 HD, Fire 8.9 HD, not for Fire 7)
  
 ##Todo
- - Different Difficulties?
- - Two-player scoring?
+ - Offline play
+ - Restore previous game
+ - New game button?
  - Key high score between visits
+ - Different Difficulties?
 
 ## Issues
-[Go take a look](https://github.com/benkiefer/matching/issues). Feel free to fix anything Spencer posts.
+[Go take a look](https://github.com/benkiefer/matching/issues). Feel free to fix anything @sherzberg posts.
  
 ##Usage
 If you are interested in making your own version of the matching game, here are some tips:
