@@ -44,9 +44,18 @@ function prepareGameBoard() {
 }
 
 $(document).ready(function () {
+    var highscore = 0;
+
+    var storedScore = localStorage.getItem("matching.highScore");
+    if (storedScore != null){
+        highscore = parseInt(storedScore);
+        console.log("found highscore: " + highscore);
+    }
+
     var notouch = $('html').hasClass('no-touch');
 
     $('.scoreboard').fadeOut(1000);
+
     prepareGameBoard();
 
     if (notouch){
@@ -76,7 +85,6 @@ $(document).ready(function () {
     var secondChoice = null;
     var matchCount = 0;
     var turns = 0;
-    var highscore = 0;
 
     $('.flipper').click(function () {
         if (!locked) {
@@ -138,6 +146,7 @@ $(document).ready(function () {
     function updateHighScore() {
         if (highscore == 0 || turns < highscore) {
             highscore = turns;
+            localStorage.setItem("matching.highScore", highscore);
         }
     }
 
