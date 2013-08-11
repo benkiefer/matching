@@ -1,13 +1,6 @@
 CACHE MANIFEST
-#version 1.0.1
+#version 1.0.2
 CACHE:
-/matching/css/main.css
-/matching/css/sprites.css
-/matching/images/catsheet.png
-/matching/js/failure.js
-/matching/js/jquery-min-1.9.1.js
-/matching/js/keys.js
-/matching/js/matching.js
-/matching/js/modernizr.js
-/matching/js/modernizr-preserve-3d-check.js
-/matching/index.html
+
+NETWORK:
+*
