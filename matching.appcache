@@ -1,6 +1,6 @@
 CACHE MANIFEST
-#version 3
-CACHE
+#version 1.0.1
+CACHE:
 /matching/css/main.css
 /matching/css/sprites.css
 /matching/images/catsheet.png
