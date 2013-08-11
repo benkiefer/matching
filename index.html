@@ -19,6 +19,7 @@
         console.log(navigator.onLine);
         if (navigator.onLine){
             window.applicationCache.swapCache();
+            window.location.reload();
         }
 
         var _gaq = _gaq || [];
