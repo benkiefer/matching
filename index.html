@@ -3,7 +3,8 @@
 <head>
     <title>Octo-Matching</title>
     <meta name="viewport" content="width=device-width">
-	<script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
+
+    <script src="js/jquery-min-1.9.1.js" type="text/javascript"></script>
     <script src="js/keys.js" type="text/javascript"></script>
 
     <link rel="stylesheet" type="text/css" href="css/sprites.css">
@@ -31,6 +32,12 @@
             test: Modernizr.borderradius && Modernizr.csstransitions && Modernizr.csstransforms && Modernizr.csstransformspreserve3d && Modernizr.cssanimations && Modernizr.boxshadow,
             yep: 'js/matching.js',
             nope: 'js/failure.js'
+        });
+
+        Modernizr.load({
+            test: Modernizr.touch,
+            yep: '',
+            nope: 'js/no-touch.js'
         });
     </script>
 

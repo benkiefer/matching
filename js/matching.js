@@ -52,22 +52,9 @@ $(document).ready(function () {
         console.log("found highscore: " + highscore);
     }
 
-    var notouch = $('html').hasClass('no-touch');
-
     $('.scoreboard').fadeOut(1000);
 
     prepareGameBoard();
-
-    if (notouch){
-        $('.flipper').not('.flipped').hover(
-            function () {
-                $(this).find('.front, .back').removeClass('card').addClass('selected-card');
-            },
-            function () {
-                $(this).find('.front, .back').removeClass('selected-card').addClass('card');
-            }
-        );
-    }
 
     $('#playAgain').click(
         function () {
