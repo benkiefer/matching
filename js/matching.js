@@ -19,28 +19,28 @@ var imageMap = {
 
 var possibleMatches = 8;
 
-function shuffle(array) {
-    var tmp, current, top = array.length;
+//function shuffle(array) {
+//    var tmp, current, top = array.length;
+//
+//    if (top) while (--top) {
+//        current = Math.floor(Math.random() * (top + 1));
+//        tmp = array[current];
+//        array[current] = array[top];
+//        array[top] = tmp;
+//    }
+//
+//    return array;
+//}
 
-    if (top) while (--top) {
-        current = Math.floor(Math.random() * (top + 1));
-        tmp = array[current];
-        array[current] = array[top];
-        array[top] = tmp;
-    }
-
-    return array;
-}
-
-function prepareGameBoard() {
-    var keys = shuffle(Object.keys(imageMap));
-    var sliced = keys.slice(0, possibleMatches);
-    var items = shuffle(sliced.concat(sliced));
-
-    $('#board').find('span.imageId').each(function (index) {
-        $(this).html(items[index]);
-    });
-}
+//function prepareGameBoard() {
+//    var keys = Object.keys(imageMap);
+//    var sliced = keys.slice(0, possibleMatches);
+//    var items = shuffle(sliced.concat(sliced));
+//
+//    $('#board').find('span.imageId').each(function (index) {
+//        $(this).html(items[index]);
+//    });
+//}
 
 $(document).ready(function () {
     var highscore = 0;

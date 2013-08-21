@@ -11,13 +11,15 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <script src="js/modernizr.js" type="text/javascript"></script>
+    <script src="coffee/shuffle.js" type="text/javascript"></script>
     <script src="js/modernizr-preserve-3d-check.js" type="text/javascript"></script>
     <script src="js/google-tracking.js" type="text/javascript"></script>
 
     <script type="text/javascript">
         Modernizr.load({
             test: Modernizr.borderradius && Modernizr.csstransitions && Modernizr.csstransforms && Modernizr.csstransformspreserve3d && Modernizr.cssanimations && Modernizr.boxshadow,
-            yep: 'js/matching.js',
+//            yep: 'js/matching.js',
+            yep: 'coffee/matching-game.js',
             nope: 'js/animation-failure.js'
         });
 
