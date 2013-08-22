@@ -43,8 +43,8 @@ $ ->
 
     setUpBoard: =>
       console.log('setting up the board')
-      $('#board').find('span.imageId').each (index) =>
-        $(this).html(index.toString())
+      $('#board').find('span.imageId').each (index, e) =>
+        $(e).html(index.toString())
 
   class Game
     constructor: (player, cards, possibleMatches) ->
@@ -69,7 +69,6 @@ $ ->
       if (@firstChoice == @secondChoice)
         # Match!
         console.log 'match!'
-
         $('#board').find('.flipped').each ->
           if (!$(this).hasClass('matched'))
             $(this).addClass('matched')
@@ -107,7 +106,6 @@ $ ->
   defaultDifficulty = 8
 
   player = new Player()
-  console.log "highscore = #{player.highScore}"
   game = new Game(player, cards, defaultDifficulty)
 
   $('#playAgain').click ->
@@ -120,7 +118,7 @@ $ ->
     if (!game.locked)
       clickedCard = $(this)
       if (!clickedCard.hasClass('flipped'))
-        game.locked = true;
+        game.locked = true
         imageId = parseInt(clickedCard.find('span.imageId').text())
         imageClass = null
 

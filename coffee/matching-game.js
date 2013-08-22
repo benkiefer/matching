@@ -74,8 +74,8 @@
       Board.prototype.setUpBoard = function() {
         var _this = this;
         console.log('setting up the board');
-        return $('#board').find('span.imageId').each(function(index) {
-          return $(_this).html(index.toString());
+        return $('#board').find('span.imageId').each(function(index, e) {
+          return $(e).html(index.toString());
         });
       };
 
@@ -135,7 +135,6 @@
     cards = [new CardOption('spidey'), new CardOption('waldo'), new CardOption('megaman'), new CardOption('rainbowdash'), new CardOption('ironman'), new CardOption('mario'), new CardOption('link'), new CardOption('scarlet'), new CardOption('wolverine'), new CardOption('trooper'), new CardOption('ninja'), new CardOption('aidorucat'), new CardOption('audrey'), new CardOption('kimono'), new CardOption('mardigras'), new CardOption('mom')];
     defaultDifficulty = 8;
     player = new Player();
-    console.log("highscore = " + player.highScore);
     game = new Game(player, cards, defaultDifficulty);
     $('#playAgain').click(function() {
       $('.flipper').delay(1000).removeClass('flipped matched');
