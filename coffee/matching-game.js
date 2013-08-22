@@ -3,17 +3,27 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   $(function() {
-    var Board, Card, Game, Player, card, cards, defaultDifficulty, game, player, _i, _len, _ref, _results;
-    Card = (function() {
-      function Card(name) {
+    var Board, CardOption, ClickableCard, Game, Player, cards, defaultDifficulty, game, player;
+    ClickableCard = (function() {
+      function ClickableCard(card, number) {
+        this.name = card.name;
+        this.number = number;
+      }
+
+      return ClickableCard;
+
+    })();
+    CardOption = (function() {
+      function CardOption(name) {
         this.name = name;
       }
 
-      return Card;
+      return CardOption;
 
     })();
     Player = (function() {
       function Player() {
+        this.updateHighScore = __bind(this.updateHighScore, this);
         this.determineHighScore = __bind(this.determineHighScore, this);
         this.highScore = this.determineHighScore();
       }
@@ -26,6 +36,13 @@
           return parseInt(score);
         } else {
           return 0;
+        }
+      };
+
+      Player.prototype.updateHighScore = function(turns) {
+        if (this.highScore === 0 || turns < this.highScore) {
+          this.highScore = turns;
+          return localStorage.setItem("matching.highScore", this.highScore);
         }
       };
 
@@ -42,17 +59,23 @@
       }
 
       Board.prototype.prepareCards = function(possibleCards) {
-        var sliced;
+        var card, clickableCards, index, shuffledPossibleCards, sliced, _i, _len;
         console.log('preparing cards');
-        sliced = cards.slice(0, this.possibleMatches);
-        return sliced.concat(sliced).shuffle();
+        sliced = possibleCards.slice(0, this.possibleMatches);
+        shuffledPossibleCards = sliced.concat(sliced).shuffle();
+        clickableCards = [];
+        for (index = _i = 0, _len = shuffledPossibleCards.length; _i < _len; index = ++_i) {
+          card = shuffledPossibleCards[index];
+          clickableCards.push(new ClickableCard(card, index));
+        }
+        return clickableCards;
       };
 
       Board.prototype.setUpBoard = function() {
         var _this = this;
         console.log('setting up the board');
         return $('#board').find('span.imageId').each(function(index) {
-          return $(_this).html(_this.cards[index].name);
+          return $(_this).html(index.toString());
         });
       };
 
@@ -60,25 +83,99 @@
 
     })();
     Game = (function() {
-      function Game(player, cards, difficulty) {
+      function Game(player, cards, possibleMatches) {
+        this.checkForMatch = __bind(this.checkForMatch, this);
+        this.checkForGameOver = __bind(this.checkForGameOver, this);
+        this.turns = 0;
         this.player = player;
-        this.board = new Board(cards, difficulty);
+        this.board = new Board(cards, possibleMatches);
+        this.firstChoice = null;
+        this.secondChoice = null;
+        this.matches = 0;
+        this.possibleMatches = possibleMatches;
+        this.locked = false;
       }
+
+      Game.prototype.checkForGameOver = function() {
+        if (this.matches === this.possibleMatches) {
+          this.player.updateHighScore(this.turns);
+          $('#turns').html(this.turns);
+          $('#highScore').html(this.player.highScore);
+          $('.gameboard').addClass('dim');
+          return $('.scoreboard').fadeIn(1000);
+        }
+      };
+
+      Game.prototype.checkForMatch = function() {
+        if (this.firstChoice === this.secondChoice) {
+          console.log('match!');
+          $('#board').find('.flipped').each(function() {
+            if (!$(this).hasClass('matched')) {
+              return $(this).addClass('matched');
+            }
+          });
+          this.matches += 1;
+          this.checkForGameOver();
+        } else {
+          console.log('no match!');
+          $('#board').find('.flipped').each(function() {
+            if (!$(this).hasClass('matched')) {
+              return $(this).removeClass('flipped');
+            }
+          });
+        }
+        this.firstChoice = null;
+        this.secondChoice = null;
+        return this.locked = false;
+      };
 
       return Game;
 
     })();
-    cards = [new Card('spidey'), new Card('waldo'), new Card('megaman'), new Card('rainbowdash'), new Card('ironman'), new Card('mario'), new Card('link'), new Card('scarlet'), new Card('wolverine'), new Card('trooper'), new Card('ninja'), new Card('aidorucat'), new Card('audrey'), new Card('kimono'), new Card('mardigras'), new Card('mom')];
+    cards = [new CardOption('spidey'), new CardOption('waldo'), new CardOption('megaman'), new CardOption('rainbowdash'), new CardOption('ironman'), new CardOption('mario'), new CardOption('link'), new CardOption('scarlet'), new CardOption('wolverine'), new CardOption('trooper'), new CardOption('ninja'), new CardOption('aidorucat'), new CardOption('audrey'), new CardOption('kimono'), new CardOption('mardigras'), new CardOption('mom')];
     defaultDifficulty = 8;
     player = new Player();
+    console.log("highscore = " + player.highScore);
     game = new Game(player, cards, defaultDifficulty);
-    _ref = game.board.cards;
-    _results = [];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      card = _ref[_i];
-      _results.push(console.log(card.name));
-    }
-    return _results;
+    $('#playAgain').click(function() {
+      $('.flipper').delay(1000).removeClass('flipped matched');
+      game = new Game(player, cards, defaultDifficulty);
+      $('.scoreboard').hide();
+      return $('.gameboard').removeClass('dim');
+    });
+    return $('.flipper').click(function() {
+      var backSide, card, clickedCard, imageClass, imageId, _i, _len, _ref;
+      if (!game.locked) {
+        clickedCard = $(this);
+        if (!clickedCard.hasClass('flipped')) {
+          game.locked = true;
+          imageId = parseInt(clickedCard.find('span.imageId').text());
+          imageClass = null;
+          _ref = game.board.cards;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            card = _ref[_i];
+            if (card.number === imageId) {
+              imageClass = card.name;
+              break;
+            }
+          }
+          backSide = clickedCard.find('.back').find('.image');
+          backSide.addClass(imageClass);
+          clickedCard.addClass('flipped');
+          if (game.firstChoice === null) {
+            game.firstChoice = imageClass;
+          } else if (game.secondChoice === null) {
+            game.secondChoice = imageClass;
+          }
+        }
+        if (game.firstChoice !== null && game.secondChoice !== null) {
+          game.turns += 1;
+          return setTimeout(game.checkForMatch(), 1000);
+        } else {
+          return game.locked = false;
+        }
+      }
+    });
   });
 
 }).call(this);

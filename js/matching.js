@@ -17,7 +17,7 @@ var imageMap = {
     16: 'mom'
 }
 
-var possibleMatches = 8;
+//var possibleMatches = 8;
 
 //function shuffle(array) {
 //    var tmp, current, top = array.length;
@@ -43,106 +43,92 @@ var possibleMatches = 8;
 //}
 
 $(document).ready(function () {
-    var highscore = 0;
-
-    var storedScore = localStorage.getItem("matching.highScore");
-    if (storedScore != null){
-        highscore = parseInt(storedScore);
-        console.log("found highscore: " + highscore);
-    }
+//    var highscore = 0;
+//
+//    var storedScore = localStorage.getItem("matching.highScore");
+//    if (storedScore != null){
+//        highscore = parseInt(storedScore);
+//        console.log("found highscore: " + highscore);
+//    }
 
     $('.scoreboard').fadeOut(1000);
 
-    prepareGameBoard();
+//    prepareGameBoard();
 
-    $('#playAgain').click(
-        function () {
-            turns = 0;
-            matchCount = 0;
-            $('.flipper').delay(1000).removeClass('flipped matched');
-            prepareGameBoard();
-            $('.scoreboard').hide();
-            $('.gameboard').removeClass('dim');
-        }
-    );
+//    $('#playAgain').click(
+//        function () {
+//            turns = 0;
+//            matchCount = 0;
+//            $('.flipper').delay(1000).removeClass('flipped matched');
+////            prepareGameBoard();
+//            $('.scoreboard').hide();
+//            $('.gameboard').removeClass('dim');
+//        }
+//    );
 
-    var locked = false;
-    var firstChoice = null;
-    var secondChoice = null;
-    var matchCount = 0;
-    var turns = 0;
+//    $('.flipper').click(function () {
+//        if (!locked) {
+//            var card = $(this);
+//            if (!card.hasClass('flipped')) {
+//                locked = true;
+//                var imageId = parseInt(card.find('span.imageId').text());
+//                var imageClass = imageMap[imageId];
+//
+//                var backSide = card.find('.back').find('.image');
+//                backSide.addClass(imageClass);
+//                card.addClass('flipped');
+//
+//                updateChoices(imageId);
+//
+//                if (firstChoice != null && secondChoice != null) {
+//                    // check matches and wait a couple of seconds so user can see results
+//                    turns += 1;
+//                    setTimeout(checkForMatch, 1000);
+//                } else {
+//                    locked = false;
+//                }
+//            }
+//        }
+//    });
 
-    $('.flipper').click(function () {
-        if (!locked) {
-            var card = $(this);
-            if (!card.hasClass('flipped')) {
-                locked = true;
-                var imageId = parseInt(card.find('span.imageId').text());
-                var imageClass = imageMap[imageId];
+//    function checkForMatch() {
+//        if (firstChoice == secondChoice) {
+//            // Match!
+//            $('#board').find('.flipped').each(function () {
+//                if (!$(this).hasClass('matched')) {
+//                    $(this).addClass('matched');
+//                }
+//            });
+//            matchCount += 1;
+//            checkForGameOver();
+//        } else {
+//            // No Match!
+//            $('#board').find('.flipped').each(function () {
+//                if (!$(this).hasClass('matched')) {
+//                    $(this).removeClass('flipped');
+//                }
+//            });
+//        }
+//
+//        firstChoice = null;
+//        secondChoice = null;
+//        locked = false;
+//    }
 
-                var backSide = card.find('.back').find('.image');
-                backSide.addClass(imageClass);
-                card.addClass('flipped');
+//    function updateHighScore() {
+//        if (highscore == 0 || turns < highscore) {
+//            highscore = turns;
+//            localStorage.setItem("matching.highScore", highscore);
+//        }
+//    }
 
-                updateChoices(imageId);
-
-                if (firstChoice != null && secondChoice != null) {
-                    // check matches and wait a couple of seconds so user can see results
-                    turns += 1;
-                    setTimeout(checkForMatch, 1000);
-                } else {
-                    locked = false;
-                }
-            }
-        }
-    });
-
-    function updateChoices(imageId) {
-        if (firstChoice == null) {
-            firstChoice = imageId;
-        } else if (secondChoice == null) {
-            secondChoice = imageId;
-        }
-    }
-
-    function checkForMatch() {
-        if (firstChoice == secondChoice) {
-            // Match!
-            $('#board').find('.flipped').each(function () {
-                if (!$(this).hasClass('matched')) {
-                    $(this).addClass('matched');
-                }
-            });
-            matchCount += 1;
-            checkForGameOver();
-        } else {
-            // No Match!
-            $('#board').find('.flipped').each(function () {
-                if (!$(this).hasClass('matched')) {
-                    $(this).removeClass('flipped');
-                }
-            });
-        }
-
-        firstChoice = null;
-        secondChoice = null;
-        locked = false;
-    }
-
-    function updateHighScore() {
-        if (highscore == 0 || turns < highscore) {
-            highscore = turns;
-            localStorage.setItem("matching.highScore", highscore);
-        }
-    }
-
-    function checkForGameOver() {
-        if (matchCount == possibleMatches) {
-            updateHighScore();
-            $('#turns').html(turns);
-            $('#highScore').html(highscore);
-            $('.gameboard').addClass('dim');
-            $('.scoreboard').fadeIn(1000);
-        }
-    }
+//    function checkForGameOver() {
+//        if (matchCount == possibleMatches) {
+//            updateHighScore();
+//            $('#turns').html(turns);
+//            $('#highScore').html(highscore);
+//            $('.gameboard').addClass('dim');
+//            $('.scoreboard').fadeIn(1000);
+//        }
+//    }
 });
