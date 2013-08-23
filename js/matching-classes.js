@@ -3,21 +3,12 @@
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
   window.ClickableCard = (function() {
-    function ClickableCard(card, number) {
-      this.name = card.name;
+    function ClickableCard(name, number) {
+      this.name = name;
       this.number = number;
     }
 
     return ClickableCard;
-
-  })();
-
-  window.CardOption = (function() {
-    function CardOption(name) {
-      this.name = name;
-    }
-
-    return CardOption;
 
   })();
 

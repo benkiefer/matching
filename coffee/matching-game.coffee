@@ -1,21 +1,11 @@
 $ ->
   cards = [
-    new CardOption('spidey'),
-    new CardOption('waldo'),
-    new CardOption('megaman'),
-    new CardOption('rainbowdash'),
-    new CardOption('ironman'),
-    new CardOption('mario'),
-    new CardOption('link'),
-    new CardOption('scarlet'),
-    new CardOption('wolverine'),
-    new CardOption('trooper'),
-    new CardOption('ninja'),
-    new CardOption('aidorucat'),
-    new CardOption('audrey'),
-    new CardOption('kimono'),
-    new CardOption('mardigras'),
-    new CardOption('mom')
+    'spidey', 'waldo', 'megaman',
+    'rainbowdash', 'ironman', 'mario',
+    'link', 'scarlet', 'wolverine',
+    'trooper', 'ninja', 'aidorucat',
+    'audrey', 'kimono', 'mardigras',
+    'mom'
   ]
 
   defaultDifficulty = 8

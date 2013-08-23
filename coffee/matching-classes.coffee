@@ -1,11 +1,7 @@
 class window.ClickableCard
-  constructor: (card, number) ->
-    @name = card.name
-    @number = number
-
-class window.CardOption
-  constructor: (name) ->
+  constructor: (name, number) ->
     @name = name
+    @number = number
 
 class window.Player
   constructor: () ->
