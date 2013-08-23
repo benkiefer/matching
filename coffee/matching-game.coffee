@@ -50,18 +50,12 @@ $ ->
 
         clickedCard.addClass('flipped')
 
-        if (game.firstChoice == null)
-          game.firstChoice = imageClass
-        else if (game.secondChoice == null)
-          game.secondChoice = imageClass;
+        game.updateChoices(imageClass)
 
-      # push all of this into check for match?
-      if (game.firstChoice != null && game.secondChoice != null)
-        # check matches and wait a couple of seconds so user can see results
-        # change this to wait for a second, then fire the function. It's too damn fast.
-        game.turns += 1
-        setTimeout ( ->
-          game.checkForMatch()
-        ), 1000
-      else
-        game.locked = false
+        if (game.firstChoice != null && game.secondChoice != null)
+          game.turns += 1
+          setTimeout ( ->
+            game.checkForMatch()
+          ), 1000
+        else
+          game.locked = false

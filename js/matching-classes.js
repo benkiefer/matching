@@ -87,8 +87,9 @@
 
   window.Game = (function() {
     function Game(player, cards, possibleMatches) {
+      this.updateChoices = __bind(this.updateChoices, this);
       this.checkForMatch = __bind(this.checkForMatch, this);
-      this.checkForGameOver = __bind(this.checkForGameOver, this);
+      this.restartGame = __bind(this.restartGame, this);
       this.turns = 0;
       this.player = player;
       this.board = new Board(cards, possibleMatches);
@@ -97,16 +98,15 @@
       this.matches = 0;
       this.possibleMatches = possibleMatches;
       this.locked = false;
+      this.gameOver = false;
     }
 
-    Game.prototype.checkForGameOver = function() {
-      if (this.matches === this.possibleMatches) {
-        this.player.updateHighScore(this.turns);
-        $('#turns').html(this.turns);
-        $('#highScore').html(this.player.highScore);
-        $('.gameboard').addClass('dim');
-        return $('.scoreboard').fadeIn(1000);
-      }
+    Game.prototype.restartGame = function() {
+      this.player.updateHighScore(this.turns);
+      $('#turns').html(this.turns);
+      $('#highScore').html(this.player.highScore);
+      $('.gameboard').addClass('dim');
+      return $('.scoreboard').fadeIn(1000);
     };
 
     Game.prototype.checkForMatch = function() {
@@ -117,7 +117,9 @@
           }
         });
         this.matches += 1;
-        this.checkForGameOver();
+        if (this.matches === this.possibleMatches) {
+          this.gameOver = true;
+        }
       } else {
         $('#board').find('.flipped').each(function() {
           if (!$(this).hasClass('matched')) {
@@ -128,6 +130,14 @@
       this.firstChoice = null;
       this.secondChoice = null;
       return this.locked = false;
+    };
+
+    Game.prototype.updateChoices = function(imageClass) {
+      if (this.firstChoice === null) {
+        return this.firstChoice = imageClass;
+      } else if (this.secondChoice === null) {
+        return this.secondChoice = imageClass;
+      }
     };
 
     return Game;

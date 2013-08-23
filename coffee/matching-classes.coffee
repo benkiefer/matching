@@ -56,14 +56,14 @@ class window.Game
     @matches = 0
     @possibleMatches = possibleMatches
     @locked = false
+    @gameOver = false
 
-  checkForGameOver: =>
-    if (@matches == @possibleMatches)
-      @player.updateHighScore(@turns)
-      $('#turns').html(@turns)
-      $('#highScore').html(@player.highScore)
-      $('.gameboard').addClass('dim')
-      $('.scoreboard').fadeIn(1000)
+  restartGame: =>
+    @player.updateHighScore(@turns)
+    $('#turns').html(@turns)
+    $('#highScore').html(@player.highScore)
+    $('.gameboard').addClass('dim')
+    $('.scoreboard').fadeIn(1000)
 
   checkForMatch: =>
     if (@firstChoice == @secondChoice)
@@ -72,7 +72,8 @@ class window.Game
         if (!$(this).hasClass('matched'))
           $(this).addClass('matched')
       @matches += 1
-      @checkForGameOver()
+      if (@matches == @possibleMatches)
+        @gameOver = true
     else
       # No Match!
       $('#board').find('.flipped').each ->
@@ -82,3 +83,9 @@ class window.Game
     @firstChoice = null
     @secondChoice = null
     @locked = false
+
+  updateChoices: (imageClass) =>
+    if (@firstChoice == null)
+      @firstChoice = imageClass
+    else if (@secondChoice == null)
+      @secondChoice = imageClass

@@ -32,19 +32,15 @@
           backSide = clickedCard.find('.back').find('.image');
           backSide.addClass(imageClass);
           clickedCard.addClass('flipped');
-          if (game.firstChoice === null) {
-            game.firstChoice = imageClass;
-          } else if (game.secondChoice === null) {
-            game.secondChoice = imageClass;
+          game.updateChoices(imageClass);
+          if (game.firstChoice !== null && game.secondChoice !== null) {
+            game.turns += 1;
+            return setTimeout((function() {
+              return game.checkForMatch();
+            }), 1000);
+          } else {
+            return game.locked = false;
           }
-        }
-        if (game.firstChoice !== null && game.secondChoice !== null) {
-          game.turns += 1;
-          return setTimeout((function() {
-            return game.checkForMatch();
-          }), 1000);
-        } else {
-          return game.locked = false;
         }
       }
     });
