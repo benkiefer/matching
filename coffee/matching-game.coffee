@@ -31,31 +31,26 @@ $ ->
     $('.gameboard').removeClass('dim')
 
   $('.flipper').click ->
-    if (!game.locked)
-      clickedCard = $(this)
-      if (!clickedCard.hasClass('flipped'))
-        game.locked = true
-        imageId = parseInt(clickedCard.find('span.imageId').text())
-        imageClass = null
+    clickedCard = $(this)
+    if (!game.locked && !clickedCard.hasClass('flipped'))
+      game.locked = true
+      imageId = parseInt(clickedCard.find('span.imageId').text())
 
-        # extract to method?
-        for card in game.board.cards
-          if (card.number == imageId)
-            imageClass = card.name
-            break
+      imageClass = null
 
-        # can I do this up front?
-        backSide = clickedCard.find('.back').find('.image')
-        backSide.addClass(imageClass)
+      for card in game.board.cards
+        if (card.number == imageId)
+          imageClass = card.name
+          break
 
-        clickedCard.addClass('flipped')
+      clickedCard.addClass('flipped')
 
-        game.updateChoices(imageClass)
+      game.updateChoices(imageClass)
 
-        if (game.firstChoice != null && game.secondChoice != null)
-          game.turns += 1
-          setTimeout ( ->
-            game.checkForMatch()
-          ), 1000
-        else
-          game.locked = false
+      if (game.firstChoice != null && game.secondChoice != null)
+        game.turns += 1
+        setTimeout ( ->
+          game.checkForMatch()
+        ), 1000
+      else
+        game.locked = false

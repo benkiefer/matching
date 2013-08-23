@@ -14,33 +14,29 @@
       return $('.gameboard').removeClass('dim');
     });
     return $('.flipper').click(function() {
-      var backSide, card, clickedCard, imageClass, imageId, _i, _len, _ref;
-      if (!game.locked) {
-        clickedCard = $(this);
-        if (!clickedCard.hasClass('flipped')) {
-          game.locked = true;
-          imageId = parseInt(clickedCard.find('span.imageId').text());
-          imageClass = null;
-          _ref = game.board.cards;
-          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            card = _ref[_i];
-            if (card.number === imageId) {
-              imageClass = card.name;
-              break;
-            }
+      var card, clickedCard, imageClass, imageId, _i, _len, _ref;
+      clickedCard = $(this);
+      if (!game.locked && !clickedCard.hasClass('flipped')) {
+        game.locked = true;
+        imageId = parseInt(clickedCard.find('span.imageId').text());
+        imageClass = null;
+        _ref = game.board.cards;
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          card = _ref[_i];
+          if (card.number === imageId) {
+            imageClass = card.name;
+            break;
           }
-          backSide = clickedCard.find('.back').find('.image');
-          backSide.addClass(imageClass);
-          clickedCard.addClass('flipped');
-          game.updateChoices(imageClass);
-          if (game.firstChoice !== null && game.secondChoice !== null) {
-            game.turns += 1;
-            return setTimeout((function() {
-              return game.checkForMatch();
-            }), 1000);
-          } else {
-            return game.locked = false;
-          }
+        }
+        clickedCard.addClass('flipped');
+        game.updateChoices(imageClass);
+        if (game.firstChoice !== null && game.secondChoice !== null) {
+          game.turns += 1;
+          return setTimeout((function() {
+            return game.checkForMatch();
+          }), 1000);
+        } else {
+          return game.locked = false;
         }
       }
     });
