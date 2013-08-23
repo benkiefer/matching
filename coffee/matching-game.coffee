@@ -32,10 +32,11 @@ $ ->
 
   $('.flipper').click ->
     clickedCard = $(this)
+
     if (!game.locked && !clickedCard.hasClass('flipped'))
       game.locked = true
-      imageId = parseInt(clickedCard.find('span.imageId').text())
 
+      imageId = parseInt(clickedCard.find('span.imageId').text())
       imageClass = null
 
       for card in game.board.cards
@@ -47,7 +48,7 @@ $ ->
 
       game.updateChoices(imageClass)
 
-      if (game.firstChoice != null && game.secondChoice != null)
+      if (game.firstChoice && game.secondChoice)
         game.turns += 1
         setTimeout ( ->
           game.checkForMatch()

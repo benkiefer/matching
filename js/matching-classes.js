@@ -89,7 +89,6 @@
     function Game(player, cards, possibleMatches) {
       this.updateChoices = __bind(this.updateChoices, this);
       this.checkForMatch = __bind(this.checkForMatch, this);
-      this.restartGame = __bind(this.restartGame, this);
       this.turns = 0;
       this.player = player;
       this.board = new Board(cards, possibleMatches);
@@ -98,16 +97,7 @@
       this.matches = 0;
       this.possibleMatches = possibleMatches;
       this.locked = false;
-      this.gameOver = false;
     }
-
-    Game.prototype.restartGame = function() {
-      this.player.updateHighScore(this.turns);
-      $('#turns').html(this.turns);
-      $('#highScore').html(this.player.highScore);
-      $('.gameboard').addClass('dim');
-      return $('.scoreboard').fadeIn(1000);
-    };
 
     Game.prototype.checkForMatch = function() {
       if (this.firstChoice === this.secondChoice) {
@@ -117,9 +107,6 @@
           }
         });
         this.matches += 1;
-        if (this.matches === this.possibleMatches) {
-          this.gameOver = true;
-        }
       } else {
         $('#board').find('.flipped').each(function() {
           if (!$(this).hasClass('matched')) {
@@ -127,15 +114,22 @@
           }
         });
       }
+      if (this.matches === this.possibleMatches) {
+        this.player.updateHighScore(this.turns);
+        $('#turns').html(this.turns);
+        $('#highScore').html(this.player.highScore);
+        $('.gameboard').addClass('dim');
+        $('.scoreboard').fadeIn(1000);
+      }
       this.firstChoice = null;
       this.secondChoice = null;
       return this.locked = false;
     };
 
     Game.prototype.updateChoices = function(imageClass) {
-      if (this.firstChoice === null) {
+      if (!this.firstChoice) {
         return this.firstChoice = imageClass;
-      } else if (this.secondChoice === null) {
+      } else if (!this.secondChoice) {
         return this.secondChoice = imageClass;
       }
     };

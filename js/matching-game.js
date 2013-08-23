@@ -30,7 +30,7 @@
         }
         clickedCard.addClass('flipped');
         game.updateChoices(imageClass);
-        if (game.firstChoice !== null && game.secondChoice !== null) {
+        if (game.firstChoice && game.secondChoice) {
           game.turns += 1;
           return setTimeout((function() {
             return game.checkForMatch();
