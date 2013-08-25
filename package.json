@@ -1,8 +1,10 @@
 {
   "name": "octo-matching",
   "description": "simple matching game with coffeescript",
-  "version": "0.0.1",
-  "dependencies": {
-    "coffee-script": "1.6.x"
-  }
+  "devDependencies": {
+    "coffee-script": "1.6.x",
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0"
+  },
+  "version": "0.0.1"
 }
