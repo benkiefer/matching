@@ -5,7 +5,8 @@ $ ->
     'link', 'scarlet', 'wolverine',
     'trooper', 'ninja', 'aidorucat',
     'audrey', 'kimono', 'mardigras',
-    'mom'
+    'mom', 'riddler', 'superman', 'monroe',
+    'android', 'minion'
   ]
 
   defaultDifficulty = 8

@@ -1,101 +1,129 @@
 .wolverine {
-	background: url('../images/catsheet.png') no-repeat 73.362% 5.812%;
-	width: 113px;
+    background: url('../images/catsheet.png') no-repeat -484px -38px;
+    width: 113px;
 	height: 101px;
 }
 
 .spidey {
-	background: url('../images/catsheet.png') no-repeat 29.883% 32.983%;
-	width: 114px;
+    background: url('../images/catsheet.png') no-repeat -185px -166px;
+    width: 114px;
 	height: 124px;
 }
 
 .waldo {
-	background: url('../images/catsheet.png') no-repeat -24px -343px;
+    background: url('../images/catsheet.png') no-repeat -4px -352px;
 	width: 130px;
 	height: 118px;
 }
 
 .mario {
-	background: url('../images/catsheet.png') no-repeat 75.412% 72.349%;
+    background: url('../images/catsheet.png') no-repeat -483px -357px;
 	width: 133px;
 	height: 119px;
 }
 
 .scarlet {
-	background: url('../images/catsheet.png') no-repeat 52.836% 37.037%;
-	width: 130px;
+    background: url('../images/catsheet.png') no-repeat -334px -189px;
+    width: 130px;
 	height: 114px;
 }
 
 .rainbowdash {
-	background: url('../images/catsheet.png') no-repeat 2.695% 36.975%;
-	width: 132px;
+    background: url('../images/catsheet.png') no-repeat 0 -185px;
+    width: 132px;
 	height: 124px;
 }
 
 .trooper {
-	background: url('../images/catsheet.png') no-repeat 30.101% 6.337%;
-	width: 109px;
+    background: url('../images/catsheet.png') no-repeat 0 -185px;
+    width: 109px;
 	height: 95px;
 }
 
 .megaman {
-	background: url('../images/catsheet.png') no-repeat 30.511% 70.635%;
-	width: 115px;
-	height: 96px;
+    background: url('../images/catsheet.png') no-repeat -189px -358px;
+    width: 115px;
+	height: 109px;
 }
 
 .link {
-	background: url('../images/catsheet.png') no-repeat 52.601% 5.634%;
-	width: 108px;
-	height: 103px;
+    background: url('../images/catsheet.png') no-repeat -344px -37px;
+    width: 108px;
+    height: 103px;
 }
 
 .ironman {
-	background: url('../images/catsheet.png') no-repeat 3.163% 4.481%;
-	width: 136px;
-	height: 109px;		
+    background: url('../images/catsheet.png') no-repeat -1px -31px;
+    width: 136px;
+    height: 109px;
 }
 		
 .ninja {
-	background: url('../images/catsheet.png') no-repeat 74.394% 36.82%;
-	width: 140px;
-	height: 122px;
-}
+    background: url('../images/catsheet.png') no-repeat -471px -185px;
+    width: 140px;
+    height: 122px;}
 
 .octocat {
-	background: url('../images/catsheet.png') no-repeat -630px -28px;
-	width: 122px;
-	height: 107px;
-}
+    background: url('../images/catsheet.png') no-repeat -610px -37px;
+    width: 122px;
+    height: 107px;}
 
 .kimono {
-	background: url('../images/catsheet.png') no-repeat 96.029% 71.843%;
-	width: 120px;
-	height: 117px;
+    background: url('../images/catsheet.png') no-repeat -633px -356px;
+    width: 120px;
+    height: 117px;
 }
 
 .audrey {
-	background: url('../images/catsheet.png') no-repeat 27.861% 98.361%;
-	width: 136px;
-	height: 112px;
+    background: url('../images/catsheet.png') no-repeat -165px -489px;
+    width: 136px;
+    height: 112px;
 }
 
 .mom {
-	background: url('../images/catsheet.png') no-repeat 51.825% 98.56%;
-	width: 115px;
-	height: 114px;
+    background: url('../images/catsheet.png') no-repeat -335px -488px;
+    width: 115px;
+    height: 114px;
 }
 
 .mardigras {
-	background: url('../images/catsheet.png') no-repeat 52.562% 70.686%;
-	width: 117px;
-	height: 119px;
+    background: url('../images/catsheet.png') no-repeat -339px -349px;
+    width: 117px;
+    height: 119px;
 }
 
 .aidorucat{
-	background: url('../images/catsheet.png') no-repeat 96.598% 36.722%;
-	width: 124px;
-	height: 118px;
+    background: url('../images/catsheet.png') no-repeat -633px -186px;
+    width: 119px;
+    height: 118px;
+}
+
+.android{
+    background: url('../images/catsheet.png') no-repeat -768px -187px;
+    width: 123px;
+    height: 116px;
+}
+
+.superman{
+    background: url('../images/catsheet.png') no-repeat -638px -492px;
+    width: 109px;
+    height: 112px;
+}
+
+.monroe{
+    background: url('../images/catsheet.png') no-repeat -748px -39px;
+    width: 139px;
+    height: 105px;
+}
+
+.riddler{
+    background: url('../images/catsheet.png') no-repeat -9px -479px;
+    width: 112px;
+    height: 109px;
+}
+
+.minion{
+	background: url('../images/catsheet.png') no-repeat -486px -491px;
+	width: 127px;
+	height: 114px;
 }
