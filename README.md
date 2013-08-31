@@ -6,23 +6,17 @@ A simple matching game written as a demo for my daughter's class at school.
 ##Supported Browsers
  - Chrome
  - Firefox
- - Amazon Silk (Fire 7 HD, Fire 8.9 HD, not for Fire 7)
+ - Amazon Silk (Fire 7 HD, Fire 8.9 HD, not Fire 7)
  
 ##Todo
  - Restore previous game
  - New game button?
  - Different Difficulties?
-
+ - break code noise onto a separate branch from the finished js/usable files?
+ 
 ## Issues
 [Go take a look](https://github.com/benkiefer/matching/issues). Feel free to fix anything [sherzberg](https://github.com/sherzberg) posts.
- 
-##Usage
-If you are interested in making your own version of the matching game, here are some tips:
- - Clone this repository.
- - Create your own sprite sheet using the sources in the 'Thanks' section and replace "images/catsheet.png" with your new sprites.
- - Use Sprite Cow to generate your own "css/sprites.css" file.
- - Update the 'coffee/matching-game.coffee' cards variable with the names of the classes you want to use. Compile the coffeescript file and replace the js/matching-game.js file with the new file.
- 
+  
 ##Thanks
  - The [Github Octocat](http://octodex.github.com/) is property of Github, and the usage of the various Octocat images in this game are intended solely for the entertainment of four-year-olds. I'm happy to change the images used upon request.
  - [sherzberg](https://github.com/sherzberg) for testing.
