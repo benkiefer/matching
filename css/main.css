@@ -17,18 +17,18 @@ table {
     width: 100%;
     height: 100%;
     border: none;
-    border-spacing: 20px;
+}
+
+td {
+    min-width: 100%;
+    height: 25%;
+    vertical-align: middle;
 }
 
 #warning {
     display: none;
     position: relative;
     text-align: center;
-}
-
-td {
-    min-width: 100%;
-    height: 25%;
 }
 
 .imageId {
@@ -47,10 +47,7 @@ td {
 }
 
 .image {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin: 5% auto;
 }
 
 .flip-container, .front, .back {
@@ -87,8 +84,9 @@ td {
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     position: relative;
-    height: 100%;
-    width: 100%;
+    height: 92%;
+    width: 92%;
+    margin: auto;
 }
 
 /* hide back of pane during swap */
@@ -147,8 +145,6 @@ td {
 .gameboard {
     top: 0;
     position: absolute;
-    margin-left: 10%;
-    margin-right: 10%;
     height: 100%;
 }
 
