@@ -82,7 +82,6 @@ td {
     -webkit-transition: 0.6s;
     transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
-    position: relative;
     height: 92%;
     width: 92%;
     margin: auto;
