@@ -9,31 +9,39 @@ module.exports = function (grunt) {
                 files: [
                     {
                         join: true,
-                        src: ['coffee/matching-*.coffee'],
+                        src: ['src/javascript/coffee/matching-*.coffee'],
                         dest: 'build/js/matching-game.js'
                     },
                     {
-                        src: ['coffee/no-touch.coffee'],
+                        src: ['src/javascript/coffee/no-touch.coffee'],
                         dest: 'js/no-touch.js'
                     },
                     {
-                        src: ['coffee/animation-failure.coffee'],
+                        src: ['src/javascript/coffee/animation-failure.coffee'],
                         dest: 'js/animation-failure.js'
                     }
                 ]
             }
         },
         uglify: {
-            files: {
+            javascript: {
+                join: true,
                 src: 'build/js/matching-game.js',
                 dest: 'js/matching-game.js'
             }
         },
         copy: {
-            main: {
+            javascript: {
                 cwd: 'build/js/',
                 src: '*.js',
                 dest: 'js/',
+                flatten: true,
+                expand: true
+            },
+            css: {
+                cwd: 'src/css/',
+                src: '*.css',
+                dest: 'css/',
                 flatten: true,
                 expand: true
             }
@@ -42,6 +50,15 @@ module.exports = function (grunt) {
             build: {
                 src: ['build']
             }
+        },
+        cssmin: {
+            minify: {
+                expand: true,
+                cwd: 'src/css/',
+                src: ['*.css'],
+                dest: 'css/',
+                ext: '.css'
+            }
         }
     });
 
@@ -49,7 +66,22 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-coffee');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    grunt.registerTask('default', ['clean:build', 'coffee:dist', 'uglify']);
-    grunt.registerTask('debug', ['clean:build', 'coffee:dist', 'copy:main']);
+    grunt.registerTask('default',
+        [
+            'clean:build',
+            'coffee:dist',
+            'uglify:javascript',
+            'cssmin',
+        ]
+    );
+    grunt.registerTask('debug',
+        [
+            'clean:build',
+            'coffee:dist',
+            'copy:javascript',
+            'copy:css'
+        ]
+    );
 };
