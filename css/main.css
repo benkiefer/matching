@@ -37,6 +37,8 @@ td {
 
 /* entire container, keeps perspective */
 .flip-container {
+    width: 100%;
+    height: 100%;
     perspective: 1000;
     -webkit-perspective: 1000;
 }
@@ -50,11 +52,6 @@ td {
     margin: 5% auto;
 }
 
-.flip-container, .front, .back {
-    width: 100%;
-    height: 100%;
-}
-
 .card {
     -moz-box-shadow: 0 0 5px #888;
     -webkit-box-shadow: 0 0 5px #888;
@@ -62,6 +59,8 @@ td {
 }
 
 .base-card {
+    width: 100%;
+    height: 100%;
     -moz-border-radius: 10px;
     border-radius: 10px;
 }
